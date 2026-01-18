@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About — Konix Markit</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:#f7f7f7;color:#222;min-height:100vh}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container{max-width:1200px;margin:0 auto;padding:1rem}
+        header.navbar{background:#fbf6e6;box-shadow:3px 3px 5px rgba(0,0,0,0.08);position:sticky;top:0;z-index:100}
+        .navbar-top{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:0.5rem;padding:0.65rem 1rem}
+        .brand {
+            display:flex;
+            align-items:center;
+            font-size: 20px;
+            font-weight: 600;
+            gap:.6rem;
+        }
+        .brand:hover {
+            color: purple;
+        }
+        .brand img{height:36px}
+        .nav-actions{margin-left:auto;display:flex;gap:0.6rem;align-items:center}
+        .sms,.cart{display:inline-flex;align-items:center;gap:.25rem;padding:.25rem .4rem;border-radius:6px}
+        .count-cart,.count-sms{display:inline-block;background:tomato;color:#fff;font-size:.75rem;padding:.12rem .45rem;border-radius:999px}
+
+        main{padding:1.25rem 0}
+        .hero{background:linear-gradient(90deg, #fcf6f6, #ffffff);padding:2rem;border-radius:10px;margin-bottom:1rem;box-shadow:0 8px 18px rgba(10,10,10,0.04);text-align:center}
+        .hero h1{color:rgb(88,183,16);font-size:1.6rem;margin-bottom:.5rem}
+        .hero p{color:#555;max-width:780px;margin:0 auto}
+
+        .about-grid{display:grid;grid-template-columns:1fr 360px;gap:1rem;margin-top:1rem}
+        @media (max-width:900px){.about-grid{grid-template-columns:1fr}}
+
+        .about-card{background:#fff;border-radius:10px;padding:1rem;box-shadow:0 8px 18px rgba(10,10,10,0.04)}
+        .about-section{margin-bottom:1rem}
+        .about-section h2{color:rgb(88,183,16);margin-bottom:.6rem}
+        .about-section p{color:#444;line-height:1.5}
+
+        .values{display:flex;gap:1rem;margin-top:.75rem;flex-wrap:wrap}
+        .value{flex:1 1 180px;background:#f7f7f7;padding:.8rem;border-radius:8px}
+
+        .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}
+        .member{background:#fff;border-radius:8px;padding:.6rem;text-align:center;border:1px solid rgba(0,0,0,0.04)}
+        .member img{width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:.5rem}
+        .member h4{margin-bottom:.25rem}
+
+        .cta{display:inline-block;background:#111;color:#fff;padding:.6rem .9rem;border-radius:8px;text-decoration:none}
+        
+         /*  footer styles (copied from index.html) */
+        .site-footer { background: #0b1220; color: #cbd5e1; padding: 3rem 0 1.5rem; margin-top: 2rem; font-size: 0.95rem; }
+        .site-footer .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; align-items: start; }
+        .site-footer h4 { color: #fff; margin-bottom: 0.6rem; font-size: 1rem; }
+        .site-footer p, .site-footer li { color: #cbd5e1; line-height: 1.5; }
+        .site-footer .footer-links { list-style: none; padding: 0; margin: 0; }
+        .site-footer .footer-links li { margin-bottom: 0.45rem; }
+        .newsletter-form { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+        .newsletter-form input { flex: 1 1 auto; padding: 0.5rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); color: #fff; outline: none; }
+        .newsletter-form input::placeholder { color: #9aa4b2; }
+        .newsletter-form button { padding: 0.5rem 0.8rem; border-radius: 6px; background: #1f6feb; color: #fff; border: none; cursor: pointer; }
+        .site-footer .footer-bottom { border-top: 1px solid rgba(63, 62, 62, 0.05); margin-top: 1.25rem; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; background: #666; }
+        .site-footer .payments { display: flex; gap: 0.5rem; align-items: center; }
+        .site-footer .socials { display: flex; gap: 0.5rem; align-items: center; }
+        .site-footer .socials img { height: 22px; width: auto; display: inline-block; margin-left: 0.5rem; opacity: 0.9; transition: transform .12s ease, opacity .12s ease; }
+        .site-footer .socials img:hover { opacity: 1; transform: translateY(-2px) scale(1.06); }
+        @media (max-width: 800px) { .site-footer .footer-inner { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 480px) { .site-footer .footer-inner { grid-template-columns: 1fr; text-align: left; } .site-footer .footer-bottom { flex-direction: column; text-align: center; } }
+
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-top container">
+            <a class="brand" href="index.html"><img src="/img/konix logo.png" alt="Konix">Konix</a>
+            <div class="nav-actions">
+                <a class="sms" href="sms.html">🔔<sup class="count-sms">0</sup></a>
+                <a class="cart" href="cart.html">🛒<sup class="count-cart">0</sup></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>About Konix Markit</h1>
+            <p>Konix Markit brings quality products at fair prices to shoppers across Ghana. We curate reliable items, support local delivery partners, and aim to make shopping simple and trustworthy.</p>
+        </section>
+
+        <div class="about-grid">
+            <div>
+                <div class="about-card about-section">
+                    <h2>Our Story</h2>
+                    <p>Founded to make everyday shopping easier, Konix Markit started as a small local store and grew into a community-focused marketplace. We combine carefully selected products with friendly local support to help you find what you need.</p>
+                </div>
+
+                <div class="about-card about-section">
+                    <h2>Our Mission</h2>
+                    <p>Deliver quality products, transparent pricing, and fast local delivery across Ghana. We prioritise durability, value, and customer-first policies.</p>
+                    <div class="values">
+                        <div class="value"><strong>Quality</strong><div class="small-muted">We test and vet products.</div></div>
+                        <div class="value"><strong>Value</strong><div class="small-muted">Fair prices and clear fees.</div></div>
+                        <div class="value"><strong>Support</strong><div class="small-muted">Local delivery and friendly help.</div></div>
+                    </div>
+                </div>
+
+                <div class="about-card about-section">
+                    <h2>Who we serve</h2>
+                    <p>Households, small businesses, and everyday shoppers across urban and regional Ghana. We focus on accessible service and dependable fulfilment.</p>
+                </div>
+
+                <div class="about-card about-section">
+                    <h2>Sell with us</h2>
+                    <p>Reach more customers by listing on Konix Markit. Visit our vendor hub to get started and review seller guidelines.</p>
+                    <p style="margin-top:.6rem"><a class="cta" href="#">Become a Seller</a></p>
+                </div>
+            </div>
+
+            <aside>
+                <div class="about-card">
+                    <h2>Meet the team</h2>
+                    <div class="team">
+                        <div class="member">
+                            <img src="/img/ceo.jpg" alt="Member">
+                            <h4>Asamoah Bismark Obuobisa</h4>
+                            <div class="small-muted">Founder & CEO</div>
+                        </div>
+                        <div class="member">
+                            <img src="/img/ceo.jpg" alt="Member">
+                            <h4>Akosua Mensah</h4>
+                            <div class="small-muted">Head of Operations</div>
+                        </div>
+                        <div class="member">
+                            <img src="/img/ceo.jpg" alt="Member">
+                            <h4>Kojo Opoku</h4>
+                            <div class="small-muted">Customer Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card" style="margin-top:1rem">
+                    <h2>Contact</h2>
+                    <p class="small-muted">Email: asamoahbismark39@gmail.com<br>Phone: +233 54 585 4976</p>
+                    <p style="margin-top:.6rem"><a class="cta" href="contact.html">Contact Us</a></p>
+                </div>
+            </aside>
+        </div>
+    </main>
+    
+
+    <!-- canonical footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <a class="brand" href="index.html"><img src="/img/konix logo.png" alt="Konix" style="height:36px;">Konix</a><br>
+                <p><strong>Konix Markit</strong><br>Quality products, fair prices, fast local delivery across Ghana.</p><br>
+                <div class="newsletter">
+                    <h4 style="margin-top:0.6rem">Subscribe</h4>
+                    <form id="newsletterForm" class="newsletter-form" action="#" novalidate>
+                        <input id="newsletterEmail" type="email" placeholder="Your email address" aria-label="Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <small id="newsletterMsg" style="display:none;color:#9aa4b2;margin-top:0.4rem;"></small>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Support</h4>
+                <ul class="footer-links">
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="#">Chat with us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="#">Delivery & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Useful Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">How to buy</a></li>
+                    <li><a href="#">Service Centers</a></li>
+                    <li><a href="#">Corporate & Bulk</a></li>
+                    <li><a href="#">Report a Product</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Sell With Us</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Sell on Konix</a></li>
+                    <li><a href="#">Vendor Hub</a></li>
+                    <li><a href="#">Service Charges</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <div class="payments">
+                <small style="color:#9aa4b2;margin-right:0.5rem">Payment methods:</small>
+                <img src="/img/visa.jpg" alt="Visa" style="height:22px;opacity:0.95;">
+                <img src="/img/mastercard.png" alt="Mastercard" style="height:22px;opacity:0.95;">
+                <img src="/img/momo.jpeg" alt="Mobile Money" style="height:22px;opacity:0.95;">
+            </div>
+            <div class="socials">
+                <small style="color:#9aa4b2;margin-right:0.5rem">Follow us:</small>
+                <a href="www.facebook.com"><img src="/img/facebook.png" alt="Facebook"></a>
+                <a href="www.x.com"><img src="/img/twitter.png" alt="Twitter"></a>
+                <a href="www.instagram.com"><img src="/img/instagram.png" alt="Instagram"></a>
+            </div>
+            <div style="width:100%;text-align: center;color:#9aa4b2; margin-top:0.6rem" >&copy; 2026 Konix Markit. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            function setCount(k,v){ localStorage.setItem(k, String(v)); }
+            function getCount(k){ return parseInt(localStorage.getItem(k) || '0', 10); }
+            function updateCounts(){ document.querySelectorAll('.count-cart').forEach(x=>x.textContent = getCount('konix_cart')); document.querySelectorAll('.count-sms').forEach(x=>x.textContent = getCount('konix_sms')); }
+            if(localStorage.getItem('konix_cart') === null) setCount('konix_cart', 0);
+            if(localStorage.getItem('konix_sms') === null) setCount('konix_sms', 0);
+            updateCounts();
+
+            const newsletterForm = document.getElementById('newsletterForm');
+            if(newsletterForm){
+                newsletterForm.addEventListener('submit', function(e){ e.preventDefault(); const input = document.getElementById('newsletterEmail'); const msg = document.getElementById('newsletterMsg'); const email = input ? input.value.trim() : ''; const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); if(!valid){ if(msg){ msg.style.display='block'; msg.textContent='Please enter a valid email.'; } return; } const key = 'konix_newsletter'; let list = []; try{ list = JSON.parse(localStorage.getItem(key) || '[]'); } catch(e){ list = []; } if(!list.includes(email)){ list.push(email); localStorage.setItem(key, JSON.stringify(list)); } if(msg){ msg.style.display='block'; msg.textContent='Thanks — you are subscribed!'; } if(input) input.value=''; setTimeout(()=>{ if(msg) msg.style.display='none'; }, 3500); });
+            }
+        })();
+    </script>
+</body>
+</html>
